@@ -1,0 +1,27 @@
+<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#915EFF"/>
+      <stop offset="1" stop-color="#00cea8"/>
+    </linearGradient>
+    <linearGradient id="logoFaceTop" x1="33" y1="5" x2="43" y2="10" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c4a5ff"/>
+      <stop offset="1" stop-color="#915EFF"/>
+    </linearGradient>
+    <linearGradient id="logoFaceLeft" x1="29" y1="8" x2="36" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7348e8"/>
+      <stop offset="1" stop-color="#5a32c4"/>
+    </linearGradient>
+    <linearGradient id="logoFaceRight" x1="36" y1="8" x2="43" y2="15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#00cea8"/>
+      <stop offset="1" stop-color="#009e82"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="44" height="44" rx="13" fill="#110e1b" stroke="url(#logoGrad)" stroke-width="1.5"/>
+  <g opacity="0.9">
+    <path d="M33 6 L41 9.5 L41 13.5 L33 10 Z" fill="url(#logoFaceTop)"/>
+    <path d="M26 9.5 L33 13 L33 17 L26 13.5 Z" fill="url(#logoFaceLeft)"/>
+    <path d="M33 13 L41 16.5 L41 20.5 L33 17 Z" fill="url(#logoFaceRight)"/>
+  </g>
+  <text x="24" y="34.5" text-anchor="middle" fill="url(#logoGrad)" font-size="17" font-weight="800" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" letter-spacing="2">AM</text>
+</svg>

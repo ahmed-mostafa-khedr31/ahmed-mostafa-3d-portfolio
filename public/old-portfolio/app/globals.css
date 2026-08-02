@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --surface: #ffffff;
+  --surface-contrast: #1e1e28;
+  --text-muted: #6f6f6f;
+}
+
+html[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --surface: #1e1e28;
+  --surface-contrast: #fafafc;
+  --text-muted: #8c8c8e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Typewriter caret */
+.txt-rotate>.wrap {
+  border-right: 0.08em solid rgba(215, 205, 240, 0.6);
+  padding-right: 2px;
+}
+
+/* Theme toggle styles */
+.art-theme-toggle-wrap {
+  padding: 12px 0 6px;
+}
+
+.art-theme-toggle {
+  width: 100%;
+  border: 0px solid rgba(255, 255, 255, 0.08) !important;
+  outline: unset !important;
+  /* border-radius: 999px; */
+  background: unset !important;
+  color: var(--surface-contrast);
+  padding: 0px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: 0.2s ease-in-out;
+  text-align: center;
+  margin: auto;
+
+}
+
+/* 
+.art-theme-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+} */
+
+.art-theme-toggle__label {
+  line-height: 1;
+}
+
+.art-theme-toggle__track {
+  width: 75px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  position: relative;
+  transition: background 0.2s ease-in-out;
+}
+
+html[data-theme="light"] .art-theme-toggle__track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.art-theme-toggle__thumb {
+  width: 14px;
+  height: 14px;
+  background: #FFC107;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s ease-in-out;
+}
+
+html[data-theme="light"] .art-theme-toggle__thumb {
+  transform: translateX(60px) !important;
+}
+
+.art-theme-toggle--inline {
+  width: auto;
+  min-width: 110px;
+  padding: 6px 10px;
+  margin-left: 10px;
+}
+
+/* Theme overrides for the template UI */
+html[data-theme="light"] body,
+body[data-theme="light"] {
+  background: #f6f6f8;
+  color: #1e1e28;
+}
+
+html[data-theme="light"] .art-app,
+html[data-theme="light"] .art-content,
+html[data-theme="light"] .art-top-bg-overlay,
+body[data-theme="light"] .art-app,
+body[data-theme="light"] .art-content,
+body[data-theme="light"] .art-top-bg-overlay {
+  background: #f6f6f8;
+}
+
+html[data-theme="light"] .art-info-bar,
+html[data-theme="light"] .art-menu-bar,
+html[data-theme="light"] .art-menu-bar-frame,
+body[data-theme="light"] .art-info-bar,
+body[data-theme="light"] .art-menu-bar,
+body[data-theme="light"] .art-menu-bar-frame {
+  background: #ffffff;
+  color: #1e1e28;
+}
+
+html[data-theme="light"] .art-a,
+html[data-theme="light"] .art-card,
+html[data-theme="light"] .art-service-icon-box,
+body[data-theme="light"] .art-a,
+body[data-theme="light"] .art-card,
+body[data-theme="light"] .art-service-icon-box {
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(30, 30, 40, 0.08);
+}
+
+html[data-theme="light"] .art-sm-text,
+html[data-theme="light"] .art-el-suptitle,
+html[data-theme="light"] .art-item-description p,
+html[data-theme="light"] .art-table p,
+html[data-theme="light"] .art-knowledge-list li,
+body[data-theme="light"] .art-sm-text,
+body[data-theme="light"] .art-el-suptitle,
+body[data-theme="light"] .art-item-description p,
+body[data-theme="light"] .art-table p,
+body[data-theme="light"] .art-knowledge-list li {
+  color: #4a4a55;
+}
+
+html[data-theme="light"] .art-menu-bar nav .main-menu .menu-item a,
+html[data-theme="light"] .art-menu-bar .art-current-page,
+body[data-theme="light"] .art-menu-bar nav .main-menu .menu-item a,
+body[data-theme="light"] .art-menu-bar .art-current-page {
+  color: #1e1e28;
+}
+
+html[data-theme="light"] .art-input,
+body[data-theme="light"] .art-input {
+  background: #f2f2f4;
+  color: #1e1e28;
+  border-color: rgba(30, 30, 40, 0.12);
+}
