@@ -37,6 +37,7 @@ export const navLinks: TNavLink[] = [
   { id: "about", title: "About" },
   { id: "work", title: "Work" },
   { id: "projects", title: "Projects" },
+  { id: "reviews", title: "Reviews" },
   { id: "contact", title: "Contact" },
 ];
 
@@ -156,8 +157,36 @@ const experiences: TExperience[] = [
   },
 ];
 
-// 📌 Testimonials
-const testimonials: TTestimonial[] = [];
+// 📌 Testimonials / starter reviews (visitors can add more from the site)
+const testimonials: TTestimonial[] = [
+  {
+    id: "seed-1",
+    name: "Sara Hassan",
+    designation: "Product Manager",
+    company: "WhiteGuard",
+    rating: 5,
+    testimonial:
+      "Ahmed turned a complex dashboard into a fast, clean interface. Communication was clear, and the handoff was production-ready.",
+  },
+  {
+    id: "seed-2",
+    name: "Omar Khaled",
+    designation: "Engineering Lead",
+    company: "T.I.T. Solutions",
+    rating: 5,
+    testimonial:
+      "Strong React and TypeScript skills, careful about performance, and easy to work with across design and backend teams.",
+  },
+  {
+    id: "seed-3",
+    name: "Lina Farouk",
+    designation: "Founder",
+    company: "Freelance client",
+    rating: 4,
+    testimonial:
+      "The site looks sharp on mobile and desktop. Ahmed delivered on time and explained every technical choice in plain language.",
+  },
+];
 
 // 📌 Project Categories for filter
 export const projectCategories = [

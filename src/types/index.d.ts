@@ -13,11 +13,23 @@ export type TExperience = {
 } & Required<Omit<TCommonProps, "name" | "icon">>;
 
 export type TTestimonial = {
+  id?: string;
   testimonial: string;
   designation: string;
   company: string;
-  image: string;
+  image?: string;
+  rating?: number;
 } & Required<Pick<TCommonProps, "name">>;
+
+export type TReview = {
+  id: string;
+  name: string;
+  email: string;
+  company?: string;
+  position?: string;
+  date: string;
+  review: string;
+};
 
 export type TProjectCategory =
   | "all"

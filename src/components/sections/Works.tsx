@@ -189,13 +189,21 @@ const ProjectCard = forwardRef<HTMLDivElement, ProjectCardProps>(
 
 ProjectCard.displayName = "ProjectCard";
 
+const PREVIEW_COUNT = 8;
+
 const Works = () => {
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [showAll, setShowAll] = useState(false);
 
   const filteredProjects =
     activeCategory === "all"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+  const visibleProjects = showAll
+    ? filteredProjects
+    : filteredProjects.slice(0, PREVIEW_COUNT);
+  const hasMore = filteredProjects.length > PREVIEW_COUNT;
 
   return (
     <>
@@ -215,7 +223,10 @@ const Works = () => {
         {projectCategories.map((cat) => (
           <button
             key={cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => {
+              setActiveCategory(cat);
+              setShowAll(false);
+            }}
             className={`filter-pill ${activeCategory === cat ? "active" : ""}`}
           >
             {categoryLabels[cat]}
@@ -226,7 +237,7 @@ const Works = () => {
       {/* Projects Grid */}
       <div className="mt-12 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         <AnimatePresence mode="popLayout">
-          {filteredProjects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <ProjectCard
               key={project.name}
               index={index}
@@ -235,6 +246,32 @@ const Works = () => {
           ))}
         </AnimatePresence>
       </div>
+
+      {hasMore && !showAll && (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll(true)}
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#915EFF] to-[#00cea8] px-6 py-2.5 text-[14px] font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
+          >
+            View All
+            <svg
+              className="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </button>
+        </div>
+      )}
     </>
   );
 };

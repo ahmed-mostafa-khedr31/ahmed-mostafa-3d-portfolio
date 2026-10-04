@@ -8,6 +8,7 @@ import {
   Navbar,
   Tech,
   Works,
+  Reviews,
   StarsCanvas,
 } from "./components";
 import Footer from "./components/layout/Footer";
@@ -32,6 +33,7 @@ const App = () => {
         <Experience />
         <Tech />
         <Works />
+        <Reviews />
         <div className="relative z-0">
           <Contact />
           <StarsCanvas />
