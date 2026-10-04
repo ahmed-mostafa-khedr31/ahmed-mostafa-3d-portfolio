@@ -1,9 +1,8 @@
 import { FormEvent, useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import { SectionWrapper } from '../../hoc';
@@ -242,7 +241,6 @@ const Reviews = () => {
               modules={[Pagination, Autoplay]}
               spaceBetween={24}
               slidesPerView={1}
-              // navigation
               pagination={{ clickable: true }}
               rewind
               autoplay={{
