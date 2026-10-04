@@ -11,15 +11,22 @@ import { SectionWrapper } from "../../hoc";
 import { Header } from "../atoms/Header";
 import { TExperience } from "../../types";
 import { config } from "../../constants/config";
+import { useTheme } from "../../theme/ThemeContext";
 
 const ExperienceCard: React.FC<TExperience> = (experience) => {
+  const { theme } = useTheme();
+  const isLight = theme === "light";
+
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
+        background: isLight ? "#ffffff" : "#1d1836",
+        color: isLight ? "#0a0c12" : "#fff",
+        boxShadow: isLight ? "0 12px 32px rgba(15, 23, 42, 0.08)" : undefined,
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{
+        borderRight: isLight ? "7px solid #ffffff" : "7px solid #232631",
+      }}
       date={experience.date}
       iconStyle={{
         background: experience.iconBg,
@@ -28,7 +35,7 @@ const ExperienceCard: React.FC<TExperience> = (experience) => {
       icon={
         <div className="flex h-full w-full items-center justify-center">
           <span
-            className={`font-bold tracking-wide text-white ${
+            className={`on-accent font-bold tracking-wide text-white ${
               experience.iconLetter.length > 2 ? "text-[10px]" : "text-[13px]"
             }`}
           >

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import { styles } from "../../constants/styles";
 import { navLinks } from "../../constants";
-import { menu, close } from "../../assets";
 import { config } from "../../constants/config";
 import Logo from "../atoms/Logo";
+import ThemeToggle from "../atoms/ThemeToggle";
 
 const Navbar = () => {
   const [active, setActive] = useState<string | null>("");
@@ -96,6 +96,8 @@ const Navbar = () => {
               ))}
             </ul>
 
+            <ThemeToggle />
+
             {/* CV Download Button */}
             <a
               href={config.resume.path}
@@ -122,13 +124,16 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button (Hamburger) */}
-          <div className="flex flex-1 items-center justify-end lg:hidden">
+          <div className="flex flex-1 items-center justify-end gap-3 lg:hidden">
+            <ThemeToggle />
             <button
               aria-label="Toggle menu"
               onClick={() => setToggle(true)}
-              className="focus:outline-none"
+              className="text-white focus:outline-none"
             >
-              <img src={menu} alt="menu" className="h-[28px] w-[28px] object-contain" />
+              <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeWidth={2} d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
             </button>
           </div>
         </div>
@@ -156,9 +161,11 @@ const Navbar = () => {
               <button
                 aria-label="Close menu"
                 onClick={() => setToggle(false)}
-                className="focus:outline-none rounded-full bg-white/5 p-2 transition-colors hover:bg-white/10"
+                className="rounded-full bg-white/5 p-2 text-white transition-colors hover:bg-white/10 focus:outline-none"
               >
-                <img src={close} alt="close" className="h-[24px] w-[24px] object-contain" />
+                <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeWidth={2} d="M6 6l12 12M18 6L6 18" />
+                </svg>
               </button>
             </div>
 

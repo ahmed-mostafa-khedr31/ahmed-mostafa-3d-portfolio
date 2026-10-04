@@ -60,7 +60,7 @@ const ReviewCard = ({ review, index }: { review: TReview; index: number }) => {
       <p className="mt-4 flex-1 text-[16px] leading-7 tracking-wide text-white">{review.review}</p>
       <div className="mt-7 flex items-center gap-4">
         <span
-          className="flex h-11 w-11 items-center justify-center rounded-full text-[14px] font-bold text-white"
+            className="on-accent flex h-11 w-11 items-center justify-center rounded-full text-[14px] font-bold text-white"
           style={{ backgroundColor: color }}
         >
           {initials(review.name)}

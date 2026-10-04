@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="./logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahmed Mostafa — Senior Front-End Developer</title>
+    <script>
+      try {
+        var savedTheme = localStorage.getItem("portfolio-theme");
+        document.documentElement.setAttribute(
+          "data-theme",
+          savedTheme === "light" ? "light" : "dark"
+        );
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
